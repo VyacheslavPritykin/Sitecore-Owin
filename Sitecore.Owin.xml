@@ -1,0 +1,96 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Owin</PackageName>
+      <Author>Vyacheslav Pritykin</Author>
+      <Version>1.0.0</Version>
+      <Revision />
+      <License />
+      <Comment>OWIN support for Sitecore.
+
+Adds an extension point to use OWIN middlewares through the Sitecore pipeline.
+
+How to use?
+
+1. Add reference to the Sitecore.Owin.dll
+2. Implement a class with a public method "void Process(InitializeOwinMiddlewareArgs args)"
+
+public class SampleOwinMiddleware
+{
+ public void Process(InitializeOwinMiddlewareArgs args)
+ {
+   args.App.Use((context, next) =&gt;
+   {
+     context.Response.Headers.Append("Yes", "it works");
+     return next();
+   });
+ }
+}
+
+3. Patch the sitecore/pipelines/initializeOwinMiddleware pipeline to add your processor</Comment>
+      <Attributes />
+      <Readme>Before installing:
+
+1. If you don't have already configured OWIN in your Sitecore instance, than you need to add a new setting into the web.config configuration/appSettings (otherwise, it will conflict with SolrNet.Startup class from the SolrNet.dll):
+
+&lt;appSettings&gt;
+   ...    
+   &lt;add key="owin:appStartup" value="Sitecore.Owin.Startup, Sitecore.Owin" /&gt;
+&lt;appSettings&gt;
+
+2. If you already have OWIN's Startup class, then you should:
+
+Inherit Sitecore.Owin.Startup class by your implementation.
+Add the override keyword to your Configuration method and call it's base implementation anywhere inside:
+
+public override void Configuration(IAppBuilder app)
+{
+  base.Configuration(app);
+  ...
+}</Readme>
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/bin/Microsoft.Owin.dll</x-item>
+        <x-item>/bin/Microsoft.Owin.Host.SystemWeb.dll</x-item>
+        <x-item>/bin/Microsoft.Owin.Host.SystemWeb.xml</x-item>
+        <x-item>/bin/Microsoft.Owin.xml</x-item>
+        <x-item>/bin/Owin.dll</x-item>
+        <x-item>/bin/Sitecore.Owin.dll</x-item>
+        <x-item>/App_Config/Include/Sitecore.Owin.config</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
