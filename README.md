@@ -2,6 +2,20 @@
 Sitecore module that provides OWIN support by adding an extension point to use OWIN middlewares through the Sitecore pipeline.
 
 ## How to install?
+### Via Nuget package
+The easiest way is to install a nuget package:
+```
+Install-Package Sitecore.Owin
+```
+It will install all necessary dependencies as well as patch your _web.config_ by adding:
+```xml
+<appSettings>
+  ...    
+  <add key="owin:appStartup" value="Sitecore.Owin.Startup, Sitecore.Owin" />
+</appSettings>
+``` 
+### Via Sitecore package
+
 1. If you don't have configured OWIN in your Sitecore instance, then you need to add a new setting into the _web.config_ `configuration/appSettings` (otherwise, it will conflict with `SolrNet.Startup` class from the _SolrNet.dll_):
 
   ```xml
@@ -10,21 +24,10 @@ Sitecore module that provides OWIN support by adding an extension point to use O
     <add key="owin:appStartup" value="Sitecore.Owin.Startup, Sitecore.Owin" />
   </appSettings>
   ```
-2. If you already have you own OWIN `Startup` class, then you should:
-  1. Inherit `Sitecore.Owin.Startup` class by your implementation.
-  2. Add the `override` keyword to your `Configuration` method and call it's base implementation anywhere inside:
-
-    ```C#
-    public override void Configuration(IAppBuilder app)
-    {
-      base.Configuration(app);
-      ...
-    }
-    ```
-3. Follow the link [Sitecore Owin _(link will be updated later)_](https://marketplace.sitecore.net/#) to download the package from the Sitecore Marketplace and install it via Sitecore Installation Wizard
+2. Follow the link [Sitecore Owin](https://marketplace.sitecore.net/en/Modules/S/Sitecore_OWIN.aspx) to download the package from the Sitecore Marketplace and install it via Sitecore Installation Wizard
 
 ## How to use?
-1. Add reference to the _Sitecore.Owin.dll_
+1. Add reference to the _Sitecore.Owin.dll_ (this step could be skipped if you installed the nuget package)
 2. Implement a class with a public method `void Process(InitializeOwinMiddlewareArgs args)`
 
   ```C#
@@ -42,5 +45,8 @@ Sitecore module that provides OWIN support by adding an extension point to use O
   ```
 
 3. Patch the `sitecore/pipelines/initializeOwinMiddleware` pipeline to add your processor
+
+## Finally
+If you already have your own OWIN `Startup` class and wish to have a pipeline based middleware setup, then you could easily inherit the `Sitecore.Owin.Startup` class and use all its benefits.
 
 Copyright 2016 Vyacheslav Pritykin
