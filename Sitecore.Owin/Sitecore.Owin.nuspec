@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Sitecore.Owin</id>
+    <version>1.0.0</version>
+    <title>Sitecore Owin</title>
+    <authors>Vyacheslav Pritykin</authors>
+    <owners>Vyacheslav Pritykin</owners>
+    <licenseUrl>https://github.com/VyacheslavPritykin/Sitecore.Owin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/VyacheslavPritykin/Sitecore.Owin</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>OWIN support for Sitecore</description>
+    <copyright>Copyright ©  2016 Vyacheslav Pritykin</copyright>
+    <tags>Sitecore OWIN</tags>
+    <language>en-US</language>
+	<summary>Provides OWIN support for Sitecore by adding an extension point to use OWIN middlewares through the Sitecore pipeline</summary>
+    <dependencies>
+      <dependency id="Microsoft.Owin.Host.SystemWeb" version="3.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="\Web.config.install.xdt" target="content\Web.config.install.xdt" />
+    <file src="\Web.config.uninstall.xdt" target="content\Web.config.uninstall.xdt" />
+    <file src="\App_Config\Include\Sitecore.Owin.config" target="content\App_Config\Include\Sitecore.Owin.config" />
+    <file src="bin\Release\Sitecore.Owin.dll" target="lib\46\Sitecore.Owin.dll" />
+    <file src="bin\Release45\Sitecore.Owin.dll" target="lib\45\Sitecore.Owin.dll" />
+  </files>
+</package>

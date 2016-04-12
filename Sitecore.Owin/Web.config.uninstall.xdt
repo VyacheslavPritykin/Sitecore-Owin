@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="owin:appStartup" value="Sitecore.Owin.Startup, Sitecore.Owin" xdt:Transform="Remove" xdt:Locator="Match(value)" />
+  </appSettings>
+</configuration>
