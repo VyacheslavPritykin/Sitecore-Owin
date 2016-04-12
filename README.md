@@ -8,7 +8,7 @@ Sitecore module that provides OWIN support by adding an extension point to use O
   <appSettings>
     ...    
     <add key="owin:appStartup" value="Sitecore.Owin.Startup, Sitecore.Owin" />
-  <appSettings>
+  </appSettings>
   ```
 2. If you already have you own OWIN `Startup` class, then you should:
   1. Inherit `Sitecore.Owin.Startup` class by your implementation.
