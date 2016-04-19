@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Sitecore.Owin</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Sitecore Owin</title>
     <authors>Vyacheslav Pritykin</authors>
     <owners>Vyacheslav Pritykin</owners>
@@ -22,7 +22,6 @@
     <file src="\Web.config.install.xdt" target="content\Web.config.install.xdt" />
     <file src="\Web.config.uninstall.xdt" target="content\Web.config.uninstall.xdt" />
     <file src="\App_Config\Include\Sitecore.Owin.config" target="content\App_Config\Include\Sitecore.Owin.config" />
-    <file src="bin\Release\Sitecore.Owin.dll" target="lib\46\Sitecore.Owin.dll" />
-    <file src="bin\Release45\Sitecore.Owin.dll" target="lib\45\Sitecore.Owin.dll" />
+    <file src="bin\Release\Sitecore.Owin.dll" target="lib\45\Sitecore.Owin.dll" />
   </files>
 </package>
