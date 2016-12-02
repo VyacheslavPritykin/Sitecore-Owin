@@ -13,7 +13,7 @@
     <copyright>$copyright$</copyright>
     <tags>Sitecore OWIN</tags>
     <language>en-US</language>
-	  <summary>Provides OWIN support for Sitecore by adding an extension point to use OWIN middlewares through the Sitecore pipeline</summary>
+    <summary>Provides OWIN support for Sitecore 8.2 by adding an extension point to use OWIN middlewares through the Sitecore pipeline</summary>
   </metadata>
   <files>
     <file src="\Web.config.install.xdt" target="content\Web.config.install.xdt" />
